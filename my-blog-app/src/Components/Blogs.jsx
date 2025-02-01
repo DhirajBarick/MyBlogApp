@@ -8,9 +8,6 @@ const NewPostEnhanced = ({ onShowNews }) => {
   const [isDragging, setIsDragging] = useState(false);
   const [isUploaded, setIsUploaded] = useState(false);
 
-  const handleShowform = () => {
-    setShowForm(true);
-  };
   const handleDragOver = (e) => {
     e.preventDefault();
     setIsDragging(true);
@@ -97,7 +94,8 @@ const NewPostEnhanced = ({ onShowNews }) => {
             <button className="submit-button">PUBLISH POST</button>
           </form>
         ) : (
-          <button className="create-btn" onClick={handleShowform}>
+          <button className="create-btn" onClick={() =>
+            setShowForm(true)}>
             Create Post
           </button>
         )}

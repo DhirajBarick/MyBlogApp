@@ -20,7 +20,7 @@ const News = ({ onShowBlog }) => {
 
   useEffect(() => {
     const fetchNews = async () => {
-      let url = `https://gnews.io/api/v4/top-hedlines?category=general&lang=en&apikey=0e7415b5d28b765a63c712ced528d65c`;
+      let url = `https://gnews.io/api/v4/top-hadlines?category=general&lang=en&apikey=0e7415b5d28b765a63c712ced528d65c`;
 
       if (query) {
         url = `https://gnews.io/api/v4/search?q=${query}&lang=en&apikey=0e7415b5d28b765a63c712ced528d65c`;
@@ -32,6 +32,8 @@ const News = ({ onShowBlog }) => {
       const localBookmarks =
         JSON.parse(localStorage.getItem("bookmarks")) || [];
       setBookmarks(localBookmarks);
+      console.log(data);
+      
     };
     fetchNews();
   }, [query]);

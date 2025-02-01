@@ -80,7 +80,7 @@
     border: none;
     border-radius: 0.8rem;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.1s ease;
     position: absolute;
     top: 2rem;
     right: 2rem;
@@ -116,18 +116,7 @@
   border-radius: 8px;
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
-}
-
-.create-btn:hover {
-  transform: translateY(-2px);
-  background: linear-gradient(
-    100deg,
-    rgba(239, 139, 159, 1) 0%,
-    rgba(255, 137, 100, 1) 50%,
-    rgba(244, 164, 96, 1) 100%
-  );
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+  transition: transform 0.1s ease, background 0.1s ease, box-shadow 0.1s ease;
 }
 
 .create-btn:active {
@@ -296,7 +285,7 @@
   font-size: 1.4rem;
   font-weight: 600;
   letter-spacing: 0.1rem;
-  transition: all 0.3s ease;
+  transition: all 0.1s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 .submit-button:active {
