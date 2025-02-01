@@ -5,11 +5,11 @@ const App = () => {
   const [showNews,setshowNews] = useState(true);
   const [showBlog,setshowBlog] = useState(false); 
 
-  const handleshowBlog = () => {
+  const handleshowBlog = (e) => {
     setshowNews(false);
     setshowBlog(true);
   }
-  const handleshowNews = () => {
+  const handleshowNews = (e) => {
     setshowNews(true);
     setshowBlog(false);
   }

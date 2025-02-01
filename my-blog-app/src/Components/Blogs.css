@@ -78,7 +78,7 @@
     font-size: 1.4rem;
     padding: 0.8rem 1.6rem;
     border: none;
-    border-radius: 0.8rem;
+    border-radius: 2rem;
     cursor: pointer;
     transition: all 0.1s ease;
     position: absolute;
@@ -113,7 +113,7 @@
     rgba(244, 164, 96, 0.9) 100%
   );
   border: none;
-  border-radius: 8px;
+  border-radius: 3rem;
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   transition: transform 0.1s ease, background 0.1s ease, box-shadow 0.1s ease;
@@ -279,7 +279,7 @@
   );
   color: white;
   border: none;
-  border-radius: 0.8rem;
+  border-radius: 2.4rem;
   cursor: pointer;
   margin-top: 2rem;
   font-size: 1.4rem;
