@@ -1,0 +1,129 @@
+.weather{
+    width: 100%;
+    height: 45%;
+    min-height: 20rem;
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.weather-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.weather-header h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #ffffffdd;
+    text-transform: capitalize;
+}
+
+.weather-search {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.weather-search input {
+    width: 100%;
+    height: 2.5rem;
+    font-size: 1.2rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 2rem;
+    padding: 0 2.5rem 0 1rem;
+    color: #ffffff;
+}
+
+.weather-search input::placeholder {
+    color: #ffffff99;
+}
+
+.weather-search button {
+    position: absolute;
+    right: 0.8rem;
+    background: none;
+    border: none;
+    color: #ffffff99;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.weather-search button:hover {
+    color: #ffffff;
+}
+
+.weather-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.location {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #ffffff99;
+}
+
+.temperature {
+    text-align: center;
+}
+
+.temp-value {
+    font-size: 3rem;
+    font-weight: 300;
+}
+
+.weather-condition {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    font-size: 1.4rem;
+    color: #ffffff99;
+}
+
+.weather-condition i {
+    color: #ffd700;
+}
+
+.weather-details {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem 0;
+}
+
+.detail {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.detail i {
+    font-size: 1.6rem;
+    color: hwb(186 65% 8%);
+}
+
+.detail-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.detail-info .value {
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.detail-info .label {
+    font-size: 1rem;
+    color: #ffffff99;
+}

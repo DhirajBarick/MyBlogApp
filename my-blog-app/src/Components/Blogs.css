@@ -1,0 +1,315 @@
+.new-post-container {
+  font-family: "Inter", sans-serif;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    100deg,
+    rgb(47, 31, 58) 0%,
+    rgb(79, 42, 42) 50%,
+    rgb(82, 67, 45) 100%
+  );
+  color: white;
+  border-radius: 1.5rem;
+  overflow: hidden;
+}
+  
+  .image-section {
+    width: 50%;
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+  
+  .background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1.6rem;
+  }
+  
+  .profile-picture {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 0.4rem solid #7d12ca90;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 0.8rem 1.6rem rgba(76, 175, 80, 0.3);
+    transition: transform 0.3s ease;
+  }
+  
+  .profile-picture:hover {
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+  
+  .profile-image {
+    width: 12rem;
+    height: 12rem;
+    object-fit: cover;
+  }
+  
+  .form-section {
+    width: 50%;
+    height: 100%;
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    border-radius: 0 1rem 1rem 0;
+    position: relative;
+  }
+  
+  .back-button {
+    background: linear-gradient(
+      100deg,
+      rgba(219, 112, 147, 0.9) 0%,
+      rgba(255, 127, 80, 0.9) 50%,
+      rgba(244, 164, 96, 0.9) 100%
+    );
+    color: white;
+    font-size: 1.4rem;
+    padding: 0.8rem 1.6rem;
+    border: none;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  }
+
+  
+  .back-button:active {
+    transform: scale(0.96);
+    background: linear-gradient(
+      100deg,
+      rgba(199, 102, 127, 0.9) 0%,
+      rgba(255, 87, 51, 0.9) 50%,
+      rgba(224, 154, 76, 0.9) 100%
+    );
+  }
+
+.create-btn {
+  width: clamp(20rem, 30cqi, 35rem);
+  align-self: center;
+  padding: 1rem;
+  font-size: 2.5rem;
+  letter-spacing: 0.1rem;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(
+    100deg,
+    rgba(219, 112, 147, 0.9) 0%,
+    rgba(255, 127, 80, 0.9) 50%,
+    rgba(244, 164, 96, 0.9) 100%
+  );
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.create-btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(
+    100deg,
+    rgba(239, 139, 159, 1) 0%,
+    rgba(255, 137, 100, 1) 50%,
+    rgba(244, 164, 96, 1) 100%
+  );
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+}
+
+.create-btn:active {
+  transform: scale(0.96);
+  background: linear-gradient(
+    100deg,
+    rgba(199, 102, 127, 0.9) 0%,
+    rgba(255, 87, 51, 0.9) 50%,
+    rgba(224, 154, 76, 0.9) 100%
+  );
+}
+
+  .form-title {
+    margin: 2rem 0;
+    font-size: 4rem;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 0.2rem;
+    background: linear-gradient(
+      100deg,
+      rgba(219, 112, 147, 0.9) 0%,
+      rgba(255, 127, 80, 0.9) 50%,
+      rgba(244, 164, 96, 0.9) 100%
+    );
+    background-clip: text;
+    color: transparent; 
+  }
+
+  
+  .upload-section {
+    margin: 2rem 0;
+    text-align: center;
+    position: relative;
+  }
+  
+  .upload-input {
+    width: 100%;
+    height: 12rem;
+    margin: 1rem 0;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 0.2rem dashed rgba(255, 255, 255, 0.4);
+    border-radius: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    position: relative;
+  }
+  
+  /* Only apply hover effects when image is not uploaded */
+  .upload-input:not(:has(.upload-success)):hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.02);
+  }
+  
+  .upload-input.dragging:not(:has(.upload-success)) {
+    border-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.02);
+    transform: scale(1.02);
+  }
+  
+  .upload-icon {
+    font-size: 2.5rem;
+    color: #0baaee;
+    transition: all 0.3s ease;
+  }
+  
+  .upload-text {
+    font-size: 1.4rem;
+    color: #888;
+    transition: all 0.3s ease;
+  }
+  
+  /* Only apply hover animation when image is not uploaded */
+  .upload-input:not(:has(.upload-success)):hover .upload-icon,
+  .upload-input:not(:has(.upload-success)):hover .upload-text {
+    transform: translateY(-0.2rem);
+  }
+  
+  /* Remove pointer cursor when image is uploaded */
+  .upload-input:has(.upload-success) {
+    cursor: default;
+  }
+  
+  /* Remove hover effects from success state */
+  .upload-success .upload-icon,
+  .upload-success .upload-text {
+    transition: none;
+  }
+  
+  .upload-input input[type="file"] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+  .upload-success {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .upload-success .upload-icon {
+    color: #4caf50;
+    font-size: 3rem;
+  }
+  
+  .upload-success .upload-text {
+    color: #4caf50;
+    font-weight: 500;
+  }
+  
+  .form-section textarea {
+    resize: none;
+  }
+  .title-input,
+.text-input {
+  width: 100%;
+  padding: 1.2rem;
+  margin: 1rem 0;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 0.2rem solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.8rem;
+  color: white;
+  font-size: 1.4rem;
+  transition: all 0.3s ease;
+}
+
+.title-input:focus,
+.text-input:focus {
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.2);
+  outline: none;
+}
+
+.title-input::placeholder,
+.text-input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.title-input:focus::placeholder,
+.text-input:focus::placeholder {
+  color: transparent;
+}
+
+.submit-button {
+  padding: 1.2rem 2.4rem;
+  background: linear-gradient(
+    100deg,
+    rgba(219, 112, 147, 0.9) 0%,
+    rgba(255, 127, 80, 0.9) 50%,
+    rgba(244, 164, 96, 0.9) 100%
+  );
+  color: white;
+  border: none;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  margin-top: 2rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+.submit-button:active {
+  transform: scale(0.96);
+  background: linear-gradient(
+    100deg,
+    rgba(199, 102, 127, 0.9) 0%,
+    rgba(255, 87, 51, 0.9) 50%,
+    rgba(224, 154, 76, 0.9) 100%
+  );
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+  
+  
+  

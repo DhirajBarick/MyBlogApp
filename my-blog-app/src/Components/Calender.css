@@ -1,0 +1,93 @@
+.calender {
+  width: 100%;
+  height: calc(55% - 1rem);
+  min-height: 28rem;
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  padding: 0.5rem;
+  display: grid;
+  place-items: center;
+}
+.calender-details {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 0.5rem;
+  padding: 0 0.5rem;
+}
+.calender-details h2 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.buttons {
+  display: flex;
+  column-gap: 1rem;
+  margin-left: auto;
+}
+.buttons i {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-image: linear-gradient(
+    to right,
+    #f2b156 0%,
+    #f78d42 50%,
+    #f06c3fc0 100%
+  );
+  opacity: 0.7;
+  font-size: 1rem;
+  transition: all 0.1s;
+  background-size: 200% auto;
+  color: rgb(0, 0, 0);
+}
+
+.buttons i:active {
+  background-position: right center;
+  color: #ffffffab;
+  transform: translateY(-5%);
+}
+.grid-days {
+  width: 100%;
+  display: flex;
+  margin: 0;
+}
+.grid-days span {
+  width: calc(100% / 7);
+  font-size: 1rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.637);
+}
+.grid-date {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.grid-date span {
+  width: calc(100% / 7);
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.grid-date .current-date {
+  background-color: #dd8e34bb;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.86);
+}
