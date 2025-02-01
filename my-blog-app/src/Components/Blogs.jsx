@@ -3,10 +3,14 @@ import "./Blogs.css";
 import cr7 from "../assets/cr7.jpg";
 import galaxy from "../assets/galaxy.webp";
 
-const NewPostEnhanced = ({onShowNews}) => {
+const NewPostEnhanced = ({ onShowNews }) => {
+  const [showForm, setShowForm] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
   const [isUploaded, setIsUploaded] = useState(false);
 
+  const handleShowform = () => {
+    setShowForm(true);
+  };
   const handleDragOver = (e) => {
     e.preventDefault();
     setIsDragging(true);
@@ -44,48 +48,59 @@ const NewPostEnhanced = ({onShowNews}) => {
         </div>
       </div>
       <div className="form-section">
-        <button className="back-button" onClick={onShowNews}>← Back</button>
-        {/* <button className="create-btn">Create Post</button> */}
-        <form action="#">          
-        <h1 className="form-title">New Post</h1> 
-        <div className="upload-section">
-          <div
-            className={`upload-input ${isDragging ? "dragging" : ""}`}
-            onDragOver={handleDragOver}
-            onDragLeave={handleDragLeave}
-            onDrop={handleDrop}
-          >
-            {isUploaded ? (
-              <div className="upload-success">
-                <i className="fa-solid fa-check upload-icon"></i>
-                <span className="upload-text">
-                  Image uploaded successfully!
-                </span> 
+        <button className="back-button" onClick={onShowNews}>
+          ← Back
+        </button>
+        {showForm ? (
+          <form action="#">
+            <h1 className="form-title">New Post</h1>
+            <div className="upload-section">
+              <div
+                className={`upload-input ${isDragging ? "dragging" : ""}`}
+                onDragOver={handleDragOver}
+                onDragLeave={handleDragLeave}
+                onDrop={handleDrop}
+              >
+                {isUploaded ? (
+                  <div className="upload-success">
+                    <i className="fa-solid fa-check upload-icon"></i>
+                    <span className="upload-text">
+                      Image uploaded successfully!
+                    </span>
+                  </div>
+                ) : (
+                  <>
+                    <i className="fa-solid fa-cloud-arrow-up upload-icon"></i>
+                    <span className="upload-text">
+                      Drag and drop an image or click to upload
+                    </span>
+                  </>
+                )}
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handleFileInput}
+                />
               </div>
-            ) : (
-              <>
-                <i className="fa-solid fa-cloud-arrow-up upload-icon"></i>
-                <span className="upload-text">
-                  Drag and drop an image or click to upload
-                </span>
-              </>
-            )}
-            <input type="file" accept="image/*" onChange={handleFileInput} />
-          </div>
-        </div>
-        <input
-          type="text"
-          placeholder="Write your title here (Max 60 characters)"
-          className="title-input"
-          maxLength={60}
-        />
-        <textarea
-          placeholder="Share your thoughts..."
-          className="text-input"
-          rows="6"
-        ></textarea>
-        <button className="submit-button">PUBLISH POST</button>
-        </form>
+            </div>
+            <input
+              type="text"
+              placeholder="Write your title here (Max 60 characters)"
+              className="title-input"
+              maxLength={60}
+            />
+            <textarea
+              placeholder="Share your thoughts..."
+              className="text-input"
+              rows="6"
+            ></textarea>
+            <button className="submit-button">PUBLISH POST</button>
+          </form>
+        ) : (
+          <button className="create-btn" onClick={handleShowform}>
+            Create Post
+          </button>
+        )}
       </div>
     </div>
   );
