@@ -166,7 +166,47 @@ const News = ({ onShowBlog }) => {
           onSelectedArticle={handleSelectedarticle}
           onDeleteBookmark={handleBookmarks}
         />
-        <div className="blog">My blogs</div>
+        <div className="my-blogs">
+          <div className="blogs-heading">MY BLOGS</div>
+            <div className="blog-posts">
+              <div className="blog-post">
+                <img src={riverimg} alt="images" />
+                <h3>Lorem ipsum dolor sit amet consectetur.</h3>
+                <div className="blog-btn">
+                <button className="blog-edit">
+                  <i className="fa-solid fa-pen"></i>
+                </button>
+                <button className="blog-delete">
+                  <i className="fa-solid fa-trash-can"></i>
+                </button>
+                </div>
+              </div>
+              <div className="blog-post">
+                <img src={riverimg} alt="images" />
+                <h3>Lorem ipsum dolor sit amet consectetur.</h3>
+                <div className="blog-btn">
+                <button className="blog-edit">
+                  <i className="fa-solid fa-pen"></i>
+                </button>
+                <button className="blog-delete">
+                  <i className="fa-solid fa-trash-can"></i>
+                </button>
+                </div>
+              </div>
+              <div className="blog-post">
+                <img src={riverimg} alt="images" />
+                <h3>Lorem ipsum dolor sit amet consectetur.</h3>
+                <div className="blog-btn">
+                <button className="blog-edit">
+                  <i className="fa-solid fa-pen"></i>
+                </button>
+                <button className="blog-delete">
+                  <i className="fa-solid fa-trash-can"></i>
+                </button>
+                </div>
+              </div>
+            </div>
+        </div>
         <div className="WCarea">
           <Weather />
           <Calender />
