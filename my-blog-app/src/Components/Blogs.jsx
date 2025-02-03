@@ -3,10 +3,24 @@ import "./Blogs.css";
 import cr7 from "../assets/cr7.jpg";
 import galaxy from "../assets/galaxy.webp";
 
-const NewPostEnhanced = ({ onShowNews }) => {
+const NewPostEnhanced = ({ onShowNews, onCreateBlog }) => {
   const [showForm, setShowForm] = useState(false);
+  const [image, setImage] = useState(null);
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+
   const [isDragging, setIsDragging] = useState(false);
   const [isUploaded, setIsUploaded] = useState(false);
+
+  const handleImageUpload = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImage(reader.result);
+      };
+      reader.readAsDataURL(e.target.files[0]);
+    }
+  };
 
   const handleDragOver = (e) => {
     e.preventDefault();
@@ -49,7 +63,7 @@ const NewPostEnhanced = ({ onShowNews }) => {
           ← Back
         </button>
         {showForm ? (
-          <form action="#">
+          <form action="#" onSubmit={onCreateBlog}>
             <h1 className="form-title">New Post</h1>
             <div className="upload-section">
               <div
@@ -94,8 +108,7 @@ const NewPostEnhanced = ({ onShowNews }) => {
             <button className="submit-button">PUBLISH POST</button>
           </form>
         ) : (
-          <button className="create-btn" onClick={() =>
-            setShowForm(true)}>
+          <button className="create-btn" onClick={() => setShowForm(true)}>
             Create Post
           </button>
         )}

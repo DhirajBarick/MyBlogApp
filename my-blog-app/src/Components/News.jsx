@@ -5,6 +5,7 @@ import Newsdetails from "./Newsdetails";
 import Bookmark from "./Bookmark.jsx";
 import "./news.css";
 import userimg from "../assets/userimg.jpg";
+import noimg from "../assets/noimg.jpg";
 import riverimg from "../assets/river.jpg";
 import axios from "axios";
 
@@ -33,7 +34,6 @@ const News = ({ onShowBlog }) => {
         JSON.parse(localStorage.getItem("bookmarks")) || [];
       setBookmarks(localBookmarks);
       console.log(data);
-      
     };
     fetchNews();
   }, [query]);
@@ -107,7 +107,7 @@ const News = ({ onShowBlog }) => {
               className="news-main"
               onClick={() => handleSelectedarticle(mainnews)}
             >
-              <img src={mainnews.image || riverimg} alt={mainnews.title} />
+              <img src={mainnews.image  || noimg} alt={mainnews.title} />
               <h2 className="news-title">
                 {mainnews.title}
                 <i
@@ -133,7 +133,7 @@ const News = ({ onShowBlog }) => {
                 key={index}
                 onClick={() => handleSelectedarticle(value)}
               >
-                <img src={value.image || riverimg} alt={value.title} />
+                <img src={value.image || noimg} alt={value.title} />
                 <h3>
                   {value.title}
                   <i
@@ -168,44 +168,44 @@ const News = ({ onShowBlog }) => {
         />
         <div className="my-blogs">
           <div className="blogs-heading">MY BLOGS</div>
-            <div className="blog-posts">
-              <div className="blog-post">
-                <img src={riverimg} alt="images" />
-                <h3>Lorem ipsum dolor sit.</h3>
-                <div className="blog-btn">
+          <div className="blog-posts">
+            <div className="blog-post">
+              <img src={riverimg} alt="images" />
+              <h3>Lorem ipsum dolor sit.</h3>
+              <div className="blog-btn">
                 <button className="blog-edit">
                   <i className="fa-solid fa-pen"></i>
                 </button>
                 <button className="blog-delete">
                   <i className="fa-solid fa-trash-can"></i>
                 </button>
-                </div>
-              </div>
-              <div className="blog-post">
-                <img src={riverimg} alt="images" />
-                <h3>Lorem ipsum dolor sit.</h3>
-                <div className="blog-btn">
-                <button className="blog-edit">
-                  <i className="fa-solid fa-pen"></i>
-                </button>
-                <button className="blog-delete">
-                  <i className="fa-solid fa-trash-can"></i>
-                </button>
-                </div>
-              </div>
-              <div className="blog-post">
-                <img src={riverimg} alt="images" />
-                <h3>Lorem ipsum dolor sit.</h3>
-                <div className="blog-btn">
-                <button className="blog-edit">
-                  <i className="fa-solid fa-pen"></i>
-                </button>
-                <button className="blog-delete">
-                  <i className="fa-solid fa-trash-can"></i>
-                </button>
-                </div>
               </div>
             </div>
+            <div className="blog-post">
+              <img src={noimg} alt="images" />
+              <h3>Lorem ipsum dolor sit.</h3>
+              <div className="blog-btn">
+                <button className="blog-edit">
+                  <i className="fa-solid fa-pen"></i>
+                </button>
+                <button className="blog-delete">
+                  <i className="fa-solid fa-trash-can"></i>
+                </button>
+              </div>
+            </div>
+            <div className="blog-post">
+              <img src={noimg} alt="images" />
+              <h3>Lorem ipsum dolor sit.</h3>
+              <div className="blog-btn">
+                <button className="blog-edit">
+                  <i className="fa-solid fa-pen"></i>
+                </button>
+                <button className="blog-delete">
+                  <i className="fa-solid fa-trash-can"></i>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
         <div className="WCarea">
           <Weather />

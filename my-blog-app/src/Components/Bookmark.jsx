@@ -1,7 +1,7 @@
 import React from "react";
 import "./box.css";
 import "./bookmark.css";
-import river from "../assets/river.jpg";
+import noimg from "../assets/noimg.jpg";
 const bookmark = ({show, bookmarks, OnClose, onSelectedArticle ,onDeleteBookmark}) => {
   if(!show){
     return null;
@@ -18,7 +18,7 @@ const bookmark = ({show, bookmarks, OnClose, onSelectedArticle ,onDeleteBookmark
 
           <div className="bookmarked-article" key={index} 
            onClick={() => onSelectedArticle(article)}>
-            <img src={article.image || river} alt={article.title} />
+            <img src={article.image || noimg} alt={article.title} />
             <h3>
               {article.title}
             </h3>
