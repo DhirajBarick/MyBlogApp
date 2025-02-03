@@ -9,7 +9,7 @@ import noimg from "../assets/noimg.jpg";
 import riverimg from "../assets/river.jpg";
 import axios from "axios";
 
-const News = ({ onShowBlog }) => {
+const News = ({ onShowBlog,blogs }) => {
   const [mainnews, setMainnews] = useState(null);
   const [news, setnews] = useState([]);
   const [search, setSearch] = useState("");
@@ -169,9 +169,11 @@ const News = ({ onShowBlog }) => {
         <div className="my-blogs">
           <div className="blogs-heading">MY BLOGS</div>
           <div className="blog-posts">
-            <div className="blog-post">
-              <img src={riverimg} alt="images" />
-              <h3>Lorem ipsum dolor sit.</h3>
+            {blogs.map((blog,index) => (
+            <div className="blog-post" key={index}>
+              <img src={blog.image} alt={blog.title} />
+              <h3>{blog.title}</h3>
+              <p>{blog.content}</p>
               <div className="blog-btn">
                 <button className="blog-edit">
                   <i className="fa-solid fa-pen"></i>
@@ -181,30 +183,7 @@ const News = ({ onShowBlog }) => {
                 </button>
               </div>
             </div>
-            <div className="blog-post">
-              <img src={noimg} alt="images" />
-              <h3>Lorem ipsum dolor sit.</h3>
-              <div className="blog-btn">
-                <button className="blog-edit">
-                  <i className="fa-solid fa-pen"></i>
-                </button>
-                <button className="blog-delete">
-                  <i className="fa-solid fa-trash-can"></i>
-                </button>
-              </div>
-            </div>
-            <div className="blog-post">
-              <img src={noimg} alt="images" />
-              <h3>Lorem ipsum dolor sit.</h3>
-              <div className="blog-btn">
-                <button className="blog-edit">
-                  <i className="fa-solid fa-pen"></i>
-                </button>
-                <button className="blog-delete">
-                  <i className="fa-solid fa-trash-can"></i>
-                </button>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
         <div className="WCarea">

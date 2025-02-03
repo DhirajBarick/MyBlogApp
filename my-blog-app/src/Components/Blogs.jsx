@@ -22,6 +22,20 @@ const NewPostEnhanced = ({ onShowNews, onCreateBlog }) => {
     }
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newblogs = {
+      image,
+      title,
+      content,
+    };
+    onCreateBlog(newblogs);
+    setImage(null);
+    setTitle("");
+    setContent("");
+    setShowForm(false);
+  };
+
   const handleDragOver = (e) => {
     e.preventDefault();
     setIsDragging(true);
@@ -63,7 +77,7 @@ const NewPostEnhanced = ({ onShowNews, onCreateBlog }) => {
           ← Back
         </button>
         {showForm ? (
-          <form action="#" onSubmit={onCreateBlog}>
+          <form onSubmit={handleSubmit}>
             <h1 className="form-title">New Post</h1>
             <div className="upload-section">
               <div
@@ -90,7 +104,10 @@ const NewPostEnhanced = ({ onShowNews, onCreateBlog }) => {
                 <input
                   type="file"
                   accept="image/*"
-                  onChange={handleFileInput}
+                  onChange={(e) => {
+                    handleFileInput(e);
+                    handleImageUpload(e);
+                  }}
                 />
               </div>
             </div>
@@ -99,11 +116,15 @@ const NewPostEnhanced = ({ onShowNews, onCreateBlog }) => {
               placeholder="Write your title here (Max 60 characters)"
               className="title-input"
               maxLength={60}
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
             />
             <textarea
               placeholder="Share your thoughts..."
               className="text-input"
               rows="6"
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
             ></textarea>
             <button className="submit-button">PUBLISH POST</button>
           </form>
