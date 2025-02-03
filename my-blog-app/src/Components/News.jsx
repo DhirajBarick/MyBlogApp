@@ -171,7 +171,7 @@ const News = ({ onShowBlog }) => {
             <div className="blog-posts">
               <div className="blog-post">
                 <img src={riverimg} alt="images" />
-                <h3>Lorem ipsum dolor sit amet consectetur.</h3>
+                <h3>Lorem ipsum dolor sit.</h3>
                 <div className="blog-btn">
                 <button className="blog-edit">
                   <i className="fa-solid fa-pen"></i>
@@ -183,7 +183,7 @@ const News = ({ onShowBlog }) => {
               </div>
               <div className="blog-post">
                 <img src={riverimg} alt="images" />
-                <h3>Lorem ipsum dolor sit amet consectetur.</h3>
+                <h3>Lorem ipsum dolor sit.</h3>
                 <div className="blog-btn">
                 <button className="blog-edit">
                   <i className="fa-solid fa-pen"></i>
@@ -195,7 +195,7 @@ const News = ({ onShowBlog }) => {
               </div>
               <div className="blog-post">
                 <img src={riverimg} alt="images" />
-                <h3>Lorem ipsum dolor sit amet consectetur.</h3>
+                <h3>Lorem ipsum dolor sit.</h3>
                 <div className="blog-btn">
                 <button className="blog-edit">
                   <i className="fa-solid fa-pen"></i>
