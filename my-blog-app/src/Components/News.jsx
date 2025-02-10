@@ -18,6 +18,7 @@ const News = ({ onShowBlog,blogs }) => {
   const [selected, setSelected] = useState(null);
   const [bookmarks, setBookmarks] = useState([]);
   const [bookmarksBox, setBookmarksBox] = useState(false);
+  const [showBlogbox, setShowBlogbox] = useState(false);
 
   useEffect(() => {
     const fetchNews = async () => {
