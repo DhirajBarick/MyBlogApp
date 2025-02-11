@@ -9,7 +9,7 @@ import noimg from "../assets/noimg.jpg";
 import riverimg from "../assets/river.jpg";
 import axios from "axios";
 
-const News = ({ onShowBlog,blogs }) => {
+const News = ({ onShowBlog, blogs }) => {
   const [mainnews, setMainnews] = useState(null);
   const [news, setnews] = useState([]);
   const [search, setSearch] = useState("");
@@ -108,7 +108,7 @@ const News = ({ onShowBlog,blogs }) => {
               className="news-main"
               onClick={() => handleSelectedarticle(mainnews)}
             >
-              <img src={mainnews.image  || noimg} alt={mainnews.title} />
+              <img src={mainnews.image || noimg} alt={mainnews.title} />
               <h2 className="news-title">
                 {mainnews.title}
                 <i
@@ -170,20 +170,19 @@ const News = ({ onShowBlog,blogs }) => {
         <div className="my-blogs">
           <div className="blogs-heading">MY BLOGS</div>
           <div className="blog-posts">
-            {blogs.map((blog,index) => (
-            <div className="blog-post" key={index}>
-              <img src={blog.image} alt={blog.title} />
-              <h3>{blog.title}</h3>
-              <p>{blog.content}</p>
-              <div className="blog-btn">
-                <button className="blog-edit">
-                  <i className="fa-solid fa-pen"></i>
-                </button>
-                <button className="blog-delete">
-                  <i className="fa-solid fa-trash-can"></i>
-                </button>
+            {blogs.map((blog, index) => (
+              <div className="blog-post" key={index}>
+                <img src={blog.image || noimg} alt={blog.title} />
+                <h3>{blog.title}</h3>   
+                <div className="blog-btn">
+                  <button className="blog-edit">
+                    <i className="fa-solid fa-pen"></i>
+                  </button>
+                  <button className="blog-delete">
+                    <i className="fa-solid fa-trash-can"></i>
+                  </button>
+                </div>
               </div>
-            </div>
             ))}
           </div>
         </div>

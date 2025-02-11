@@ -323,7 +323,7 @@
   background-color: transparent;
   border: none;
   font-size: 1.5rem;
-  color: rgb(45, 45, 45);
+  color: rgb(0, 0, 0);
   cursor: pointer;
 }
 .blog-btn .blog-edit:active ,.blog-delete:active{
