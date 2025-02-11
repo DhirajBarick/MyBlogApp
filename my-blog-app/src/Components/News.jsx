@@ -3,13 +3,13 @@ import Weather from "./Weather";
 import Calender from "./Calender";
 import Newsdetails from "./Newsdetails";
 import Bookmark from "./Bookmark.jsx";
+import Blogsdetails from "./Blogsdetails.jsx";
 import "./news.css";
 import userimg from "../assets/userimg.jpg";
 import noimg from "../assets/noimg.jpg";
-import riverimg from "../assets/river.jpg";
 import axios from "axios";
 
-const News = ({ onShowBlog, blogs }) => {
+const News = ({ onShowBlog, blogs, onDelete }) => {
   const [mainnews, setMainnews] = useState(null);
   const [news, setnews] = useState([]);
   const [search, setSearch] = useState("");
@@ -19,6 +19,7 @@ const News = ({ onShowBlog, blogs }) => {
   const [bookmarks, setBookmarks] = useState([]);
   const [bookmarksBox, setBookmarksBox] = useState(false);
   const [showBlogbox, setShowBlogbox] = useState(false);
+  const [selectedBlog, setSelectedBlog] = useState(null);
 
   useEffect(() => {
     const fetchNews = async () => {
@@ -51,6 +52,11 @@ const News = ({ onShowBlog, blogs }) => {
     setSelected(article);
     setShowbox(true);
     console.log(article);
+  };
+  const handleSelectedblog = (blogs) => {
+    setSelectedBlog(blogs);
+    setShowBlogbox(true);
+    console.log(blogs);
   };
 
   const handleBookmarks = (article) => {
@@ -171,14 +177,21 @@ const News = ({ onShowBlog, blogs }) => {
           <div className="blogs-heading">MY BLOGS</div>
           <div className="blog-posts">
             {blogs.map((blog, index) => (
-              <div className="blog-post" key={index}>
+              <div
+                className="blog-post"
+                key={index}
+                onClick={() => handleSelectedblog(blog)}
+              >
                 <img src={blog.image || noimg} alt={blog.title} />
-                <h3>{blog.title}</h3>   
+                <h3>{blog.title}</h3>
                 <div className="blog-btn">
-                  <button className="blog-edit">
+                  <button className="blog-edit" onClick={()=>handleEditblog(index)}>
                     <i className="fa-solid fa-pen"></i>
                   </button>
-                  <button className="blog-delete">
+                  <button
+                    className="blog-delete"
+                    onClick={() => onDelete(blog)}
+                  >
                     <i className="fa-solid fa-trash-can"></i>
                   </button>
                 </div>
@@ -186,6 +199,11 @@ const News = ({ onShowBlog, blogs }) => {
             ))}
           </div>
         </div>
+        <Blogsdetails
+          showblog={showBlogbox}
+          blog={selectedBlog}
+          Closeblog={() => setShowBlogbox(false)}
+        />
         <div className="WCarea">
           <Weather />
           <Calender />

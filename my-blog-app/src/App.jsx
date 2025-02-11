@@ -9,6 +9,9 @@ const App = () => {
   const handleCreateBlogs = (newBlog) => {
     setBlogs((b) => [...b,newBlog]);
   }
+  const handleDeleteBlogs = (blog) => {
+    setBlogs((b) => b.filter((b) => b !== blog));
+  }
 
   const handleshowBlog = (e) => {
     setshowNews(false);
@@ -22,7 +25,7 @@ const App = () => {
     <div>
       <div className="container">
         <div className="blog-news-app">
-          {showNews && <News onShowBlog={handleshowBlog} blogs={blogs} />}
+          {showNews && <News onShowBlog={handleshowBlog} blogs={blogs} onDelete={handleDeleteBlogs} />}
           {showBlog && <Blogs onShowNews={handleshowNews} onCreateBlog={handleCreateBlogs} />}
           </div>
       </div>

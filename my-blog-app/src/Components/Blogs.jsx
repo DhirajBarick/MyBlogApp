@@ -8,6 +8,9 @@ const NewPostEnhanced = ({ onShowNews, onCreateBlog }) => {
   const [image, setImage] = useState(null);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+  const [validtitle, setValidtitle] = useState(false);
+  const [validcontent, setValidcontent] = useState(false);
 
   const [isDragging, setIsDragging] = useState(false);
   const [isUploaded, setIsUploaded] = useState(false);
@@ -21,9 +24,22 @@ const NewPostEnhanced = ({ onShowNews, onCreateBlog }) => {
       reader.readAsDataURL(e.target.files[0]);
     }
   };
-
+  const handleTitle = (e) =>{
+    setTitle(e.target.value);
+    setValidtitle(true);
+  }
+  const handleContent = (e) =>{
+    setContent(e.target.value);
+    setValidcontent(true);
+  }
   const handleSubmit = (e) => {
     e.preventDefault();
+    if(!title || !content){
+      if(!title) setValidtitle(false)
+      if(!content) setValidcontent(false)
+        return
+    }
+
     const newblogs = {
       image,
       title,
@@ -34,6 +50,11 @@ const NewPostEnhanced = ({ onShowNews, onCreateBlog }) => {
     setTitle("");
     setContent("");
     setShowForm(false);
+    setSubmitted(true);
+    setTimeout(() => {
+      setSubmitted(false);
+      onShowNews()
+    }, 3000);
   };
 
   const handleDragOver = (e) => {
@@ -73,66 +94,69 @@ const NewPostEnhanced = ({ onShowNews, onCreateBlog }) => {
         </div>
       </div>
       <div className="form-section">
-        <button className="back-button" onClick={onShowNews}>
+        <button className="back-button" onClick={onShowNews} >
           ← Back
         </button>
-        {showForm ? (
-          <form onSubmit={handleSubmit}>
-            <h1 className="form-title">New Post</h1>
-            <div className="upload-section">
-              <div
-                className={`upload-input ${isDragging ? "dragging" : ""}`}
-                onDragOver={handleDragOver}
-                onDragLeave={handleDragLeave}
-                onDrop={handleDrop}
-              >
-                {isUploaded ? (
-                  <div className="upload-success">
-                    <i className="fa-solid fa-check upload-icon"></i>
-                    <span className="upload-text">
-                      Image uploaded successfully!
-                    </span>
-                  </div>
-                ) : (
-                  <>
-                    <i className="fa-solid fa-cloud-arrow-up upload-icon"></i>
-                    <span className="upload-text">
-                      Drag and drop an image or click to upload
-                    </span>
-                  </>
-                )}
-                <input
-                  type="file"
-                  accept="image/*"
-                  onChange={(e) => {
-                    handleFileInput(e);
-                    handleImageUpload(e);
-                  }}
-                />
-              </div>
-            </div>
-            <input
-              type="text"
-              placeholder="Write your title here (Max 60 characters)"
-              className="title-input"
-              maxLength={60}
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-            />
-            <textarea
-              placeholder="Share your thoughts..."
-              className="text-input"
-              rows="6"
-              value={content}
-              onChange={(e) => setContent(e.target.value)}
-            ></textarea>
-            <button className="submit-button">PUBLISH POST</button>
-          </form>
-        ) : (
+        {!showForm && !submitted && (
           <button className="create-btn" onClick={() => setShowForm(true)}>
             Create Post
           </button>
         )}
+        {submitted && <p className="submittedtext">Post Published!</p>}
+        <form
+          onSubmit={handleSubmit}
+          className={`${showForm ? "form-visble" : "form-hidden"}`}
+        >
+          <h1 className="form-title">New Post</h1>
+          <div className="upload-section">
+            <div
+              className={`upload-input ${isDragging ? "dragging" : ""}`}
+              onDragOver={handleDragOver}
+              onDragLeave={handleDragLeave}
+              onDrop={handleDrop}
+            >
+              {isUploaded ? (
+                <div className="upload-success">
+                  <i className="fa-solid fa-check upload-icon"></i>
+                  <span className="upload-text">
+                    Image uploaded successfully!
+                  </span>
+                </div>
+              ) : (
+                <>
+                  <i className="fa-solid fa-cloud-arrow-up upload-icon"></i>
+                  <span className="upload-text">
+                    Drag and drop an image or click to upload
+                  </span>
+                </>
+              )}
+              <input
+                type="file"
+                accept="image/*"
+                onChange={(e) => {
+                  handleFileInput(e);
+                  handleImageUpload(e);
+                }}
+              />
+            </div>
+          </div>
+          <input
+            type="text"
+            placeholder="Write your title here (Max 60 characters)"
+            className={`title-input ${!validtitle ? 'notvalid' : ''}`}
+            maxLength={60}
+            value={title}
+            onChange={handleTitle}
+          />
+          <textarea
+            placeholder="Share your thoughts..."
+            className={`text-input ${!validcontent ? 'notvalid' : ''}`}
+            rows="6"
+            value={content}
+            onChange={handleContent}
+          ></textarea>
+          <button className="submit-button">PUBLISH POST</button>
+        </form>
       </div>
     </div>
   );
