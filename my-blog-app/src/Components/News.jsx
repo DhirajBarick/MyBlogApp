@@ -32,8 +32,7 @@ const News = ({ onShowBlog, blogs, onDelete }) => {
       const data = response.data.articles;
       setMainnews(data[0]);
       setnews(data.slice(1, 7));
-      const localBookmarks =
-        JSON.parse(localStorage.getItem("bookmarks")) || [];
+      const localBookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
       setBookmarks(localBookmarks);
       console.log(data);
     };

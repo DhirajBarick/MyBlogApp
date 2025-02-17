@@ -15,10 +15,16 @@
     color: white;
   }
   .box-content {
+    height: 30rem;
     font-size: 1.8rem;
     color: white;
     margin-top: 1rem;
     margin-bottom: 2rem;
     line-height: 2.5rem;
+    overflow: scroll;
   }
+  .box-content::-webkit-scrollbar{
+    display: none;
+  }
+
   

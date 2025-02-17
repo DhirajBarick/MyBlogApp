@@ -269,8 +269,8 @@
   box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.2);
   outline: none;
 }
-.title-input .notvalid::placeholder,
-.text-input .notvalid::placeholder {
+.title-input.notvalid::placeholder,
+.text-input.notvalid::placeholder {
   color: rgba(255, 0, 0, 0.7);
 }
 

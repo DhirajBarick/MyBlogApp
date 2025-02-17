@@ -23,7 +23,8 @@ const NewPostEnhanced = ({ onShowNews, onCreateBlog }) => {
       };
       reader.readAsDataURL(e.target.files[0]);
     }
-  };
+  }; 
+
   const handleTitle = (e) =>{
     setTitle(e.target.value);
     setValidtitle(true);
@@ -32,6 +33,7 @@ const NewPostEnhanced = ({ onShowNews, onCreateBlog }) => {
     setContent(e.target.value);
     setValidcontent(true);
   }
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     if(!title || !content){
@@ -98,7 +100,11 @@ const NewPostEnhanced = ({ onShowNews, onCreateBlog }) => {
           ← Back
         </button>
         {!showForm && !submitted && (
-          <button className="create-btn" onClick={() => setShowForm(true)}>
+          <button className="create-btn" onClick={() => {
+            setShowForm(true);
+            setValidtitle(true);
+            setValidcontent(true); 
+          }}>
             Create Post
           </button>
         )}
