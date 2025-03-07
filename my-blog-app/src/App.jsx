@@ -4,12 +4,24 @@ import Blogs from "./Components/Blogs.jsx";
 const App = () => {
   const [showNews, setshowNews] = useState(true);
   const [showBlog, setshowBlog] = useState(false);
-  const [blogs, setBlogs] = useState([]);
+  const [blogs, setBlogs] = useState(() => {
+    try {
+      const savedBlogs = localStorage.getItem("blogs");
+      return savedBlogs ? JSON.parse(savedBlogs) : [];
+    } catch (error) {
+      console.error("Error parsing blogs from localStorage:", error);
+      return [];
+    }
+  });
 
   useEffect(() => {
-    const localBlogs = JSON.parse(localStorage.getItem("blogs") || []);
-    setBlogs(localBlogs);
-  }, []);
+    try {
+      localStorage.setItem("blogs", JSON.stringify(blogs));
+    } catch (error) {
+      console.error("Error saving blogs to localStorage:", error);
+    }
+  }, [blogs]);
+
   const handleCreateBlogs = (newBlog) => {
     setBlogs((b) => {
       const updatedBlogs = [...b, newBlog];
@@ -21,11 +33,11 @@ const App = () => {
     setBlogs((b) => b.filter((b) => b !== blog));
   };
 
-  const handleshowBlog = (e) => {
+  const handleshowBlog = () => {
     setshowNews(false);
     setshowBlog(true);
   };
-  const handleshowNews = (e) => {
+  const handleshowNews = () => {
     setshowNews(true);
     setshowBlog(false);
   };

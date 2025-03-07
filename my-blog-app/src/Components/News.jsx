@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Weather from "./Weather";
 import Calender from "./Calender";
 import Newsdetails from "./Newsdetails";
-import Bookmark from "./Bookmark.jsx";
+import Bookmark from "./Bookmark";
 import Blogsdetails from "./Blogsdetails.jsx";
 import "./news.css";
 import userimg from "../assets/userimg.jpg";
@@ -32,7 +32,8 @@ const News = ({ onShowBlog, blogs, onDelete }) => {
       const data = response.data.articles;
       setMainnews(data[0]);
       setnews(data.slice(1, 7));
-      const localBookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
+      const localBookmarks =
+        JSON.parse(localStorage.getItem("bookmarks")) || [];
       setBookmarks(localBookmarks);
       console.log(data);
     };
@@ -184,7 +185,10 @@ const News = ({ onShowBlog, blogs, onDelete }) => {
                 <img src={blog.image || noimg} alt={blog.title} />
                 <h3>{blog.title}</h3>
                 <div className="blog-btn">
-                  <button className="blog-edit" onClick={()=>handleEditblog(index)}>
+                  <button
+                    className="blog-edit"
+                    onClick={() => handleEditblog(index)}
+                  >
                     <i className="fa-solid fa-pen"></i>
                   </button>
                   <button
