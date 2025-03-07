@@ -15,12 +15,12 @@ const Blogsdetails = ({ showblog, blog, Closeblog }) => {
         {blog && (
           <>
             <img
-              src={blog.image || { noimg }}
+              src={blog.image ||  noimg }
               alt={blog.title}
-              className="box-image"
+              className="blog-image"
             />
-            <h2 className="box-title">{blog.title}</h2>
-            <p className="box-content">{blog.content}</p>
+            <h2 className="blog-title">{blog.title}</h2>
+            <p className="blog-content">{blog.content}</p>
           </>
         )}
       </div>

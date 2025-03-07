@@ -1,30 +1,22 @@
-
-.box-image {
-    width: 100%;
-    height: auto;
-    max-height: 30rem;
-    object-fit: cover;
-    border-radius: 1rem;
-    opacity: 0.7;
-  }
-  .box-title {
-    font-family: "Newsreader", serif;
-    letter-spacing: 0.1rem;
-    font-size: 3rem;
-    margin-top: 1rem;
-    color: white;
-  }
-  .box-content {
-    height: 30rem;
-    font-size: 1.8rem;
-    color: white;
-    margin-top: 1rem;
-    margin-bottom: 2rem;
-    line-height: 2.5rem;
-    overflow: scroll;
-  }
-  .box-content::-webkit-scrollbar{
-    display: none;
-  }
-
-  
+.blog-image {
+  width: 100%;
+  height: auto;
+  max-height: 30rem;
+  object-fit: cover;
+  border-radius: 1rem;
+  opacity: 0.7;
+}
+.blog-title {
+  font-family: "Newsreader", serif;
+  letter-spacing: 0.1rem;
+  font-size: 3rem;
+  margin-top: 1rem;
+  color: white;
+}
+.blog-content {
+  font-size: 1.8rem;
+  color: white;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  line-height: 2.5rem;
+}
