@@ -9,7 +9,7 @@ import userimg from "../assets/userimg.jpg";
 import noimg from "../assets/noimg.jpg";
 import axios from "axios";
 
-const News = ({ onShowBlog, blogs, onDelete }) => {
+const News = ({ onShowBlog, blogs, onDelete, onEditBlog }) => {
   const [mainnews, setMainnews] = useState(null);
   const [news, setnews] = useState([]);
   const [search, setSearch] = useState("");
@@ -180,14 +180,13 @@ const News = ({ onShowBlog, blogs, onDelete }) => {
               <div
                 className="blog-post"
                 key={index}
-                onClick={() => handleSelectedblog(blog)}
               >
-                <img src={blog.image || noimg} alt={blog.title} />
-                <h3>{blog.title}</h3>
+                <img src={blog.image || noimg} alt={blog.title} onClick={() => handleSelectedblog(blog)} />
+                <h3 onClick={() => handleSelectedblog(blog)}>{blog.title}</h3>
                 <div className="blog-btn">
                   <button
                     className="blog-edit"
-                    onClick={() => handleEditblog(index)}
+                    onClick={() => onEditBlog(blog)}
                   >
                     <i className="fa-solid fa-pen"></i>
                   </button>

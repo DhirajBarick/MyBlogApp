@@ -4,6 +4,8 @@ import Blogs from "./Components/Blogs.jsx";
 const App = () => {
   const [showNews, setshowNews] = useState(true);
   const [showBlog, setshowBlog] = useState(false);
+  const [selectedPost, setSelectedPost] = useState(null);
+  const [editing, setEditing] = useState(false);
   const [blogs, setBlogs] = useState(() => {
     try {
       const savedBlogs = localStorage.getItem("blogs");
@@ -22,17 +24,28 @@ const App = () => {
     }
   }, [blogs]);
 
-  const handleCreateBlogs = (newBlog) => {
+  const handleCreateBlogs = (newBlog, edit) => {
     setBlogs((b) => {
-      const updatedBlogs = [...b, newBlog];
+      const updatedBlogs = edit
+        ? b.map((blog) => (blog === selectedPost ? newBlog : blog))
+        : [...b, newBlog];
       localStorage.setItem("blog", JSON.stringify(updatedBlogs));
       return updatedBlogs;
     });
+    setEditing(false);
+    setSelectedPost(null);
   };
   const handleDeleteBlogs = (blog) => {
     setBlogs((b) => b.filter((b) => b !== blog));
+    setshowBlog(false);
   };
 
+  const handleEditPost = (blog) =>{
+    setSelectedPost(blog);
+    setEditing(true);
+    setshowNews(false);
+    setshowBlog(true);
+  }
   const handleshowBlog = () => {
     setshowNews(false);
     setshowBlog(true);
@@ -40,6 +53,8 @@ const App = () => {
   const handleshowNews = () => {
     setshowNews(true);
     setshowBlog(false);
+    setEditing(false);
+    setSelectedPost(null);
   };
   return (
     <div>
@@ -50,12 +65,15 @@ const App = () => {
               onShowBlog={handleshowBlog}
               blogs={blogs}
               onDelete={handleDeleteBlogs}
+              onEditBlog={handleEditPost}
             />
           )}
           {showBlog && (
             <Blogs
               onShowNews={handleshowNews}
               onCreateBlog={handleCreateBlogs}
+              editPost={selectedPost}
+              isEditing={editing}
             />
           )}
         </div>

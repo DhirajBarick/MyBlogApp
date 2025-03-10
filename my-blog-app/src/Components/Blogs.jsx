@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Blogs.css";
 import cr7 from "../assets/cr7.jpg";
 import galaxy from "../assets/galaxy.webp";
 
-const NewPostEnhanced = ({ onShowNews, onCreateBlog }) => {
+const NewPostEnhanced = ({ onShowNews, onCreateBlog ,editPost, isEditing }) => {
   const [showForm, setShowForm] = useState(false);
   const [image, setImage] = useState(null);
   const [title, setTitle] = useState("");
@@ -15,8 +15,31 @@ const NewPostEnhanced = ({ onShowNews, onCreateBlog }) => {
   const [isDragging, setIsDragging] = useState(false);
   const [isUploaded, setIsUploaded] = useState(false);
 
+  useEffect(() =>{
+    if(isEditing && editPost){
+      setImage(editPost.image);
+      setTitle(editPost.title);
+      setContent(editPost.content);
+      setShowForm(true);
+     }
+     else{
+      setImage(null)
+      setTitle("");
+      setContent("");
+      setShowForm(false);
+     }
+
+  },[isEditing,editPost])
+
   const handleImageUpload = (e) => {
     if (e.target.files && e.target.files[0]) {
+      const file= e.target.files[0];
+      const maxsize = 1 * 1024 * 1024 //to bytes
+
+      if(file.size > maxsize){
+        alert("File size exceeds 1 MB")
+        return
+      }
       const reader = new FileReader();
       reader.onloadend = () => {
         setImage(reader.result);
@@ -39,7 +62,7 @@ const NewPostEnhanced = ({ onShowNews, onCreateBlog }) => {
     if(!title || !content){
       if(!title) setValidtitle(false)
       if(!content) setValidcontent(false)
-        return
+        return;
     }
 
     const newblogs = {
@@ -47,7 +70,7 @@ const NewPostEnhanced = ({ onShowNews, onCreateBlog }) => {
       title,
       content,
     };
-    onCreateBlog(newblogs);
+    onCreateBlog(newblogs, isEditing);
     setImage(null);
     setTitle("");
     setContent("");
@@ -150,7 +173,7 @@ const NewPostEnhanced = ({ onShowNews, onCreateBlog }) => {
             type="text"
             placeholder="Write your title here (Max 60 characters)"
             className={`title-input ${!validtitle ? 'notvalid' : ''}`}
-            maxLength={60}
+            maxLength={40}
             value={title}
             onChange={handleTitle}
           />

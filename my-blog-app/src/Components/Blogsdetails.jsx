@@ -19,7 +19,7 @@ const Blogsdetails = ({ showblog, blog, Closeblog }) => {
               alt={blog.title}
               className="blog-image"
             />
-            <h2 className="blog-title">{blog.title}</h2>
+            <div className="blog-title">{blog.title}</div>
             <p className="blog-content">{blog.content}</p>
           </>
         )}

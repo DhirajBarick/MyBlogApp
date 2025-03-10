@@ -7,16 +7,23 @@
   opacity: 0.7;
 }
 .blog-title {
+  display: flex;
+  max-height: 20rem;
   font-family: "Newsreader", serif;
   letter-spacing: 0.1rem;
-  font-size: 3rem;
+  font-size: clamp(2rem, 3rem, 3.5rem);
   margin-top: 1rem;
   color: white;
 }
 .blog-content {
+  max-height: 30rem;
   font-size: 1.8rem;
   color: white;
   margin-top: 1rem;
   margin-bottom: 2rem;
   line-height: 2.5rem;
+  overflow-y: scroll;
+}
+.blog-content::-webkit-scrollbar{
+  display: none;
 }
