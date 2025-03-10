@@ -177,11 +177,12 @@ const News = ({ onShowBlog, blogs, onDelete, onEditBlog }) => {
           <div className="blogs-heading">MY BLOGS</div>
           <div className="blog-posts">
             {blogs.map((blog, index) => (
-              <div
-                className="blog-post"
-                key={index}
-              >
-                <img src={blog.image || noimg} alt={blog.title} onClick={() => handleSelectedblog(blog)} />
+              <div className="blog-post" key={index}>
+                <img
+                  src={blog.image || noimg}
+                  alt={blog.title}
+                  onClick={() => handleSelectedblog(blog)}
+                />
                 <h3 onClick={() => handleSelectedblog(blog)}>{blog.title}</h3>
                 <div className="blog-btn">
                   <button
@@ -192,7 +193,10 @@ const News = ({ onShowBlog, blogs, onDelete, onEditBlog }) => {
                   </button>
                   <button
                     className="blog-delete"
-                    onClick={() => onDelete(blog)}
+                    onClick={(e) => {
+                      e.stopPropagation(e);
+                      onDelete(blog);
+                    }}
                   >
                     <i className="fa-solid fa-trash-can"></i>
                   </button>

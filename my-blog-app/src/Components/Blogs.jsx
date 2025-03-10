@@ -136,7 +136,7 @@ const NewPostEnhanced = ({ onShowNews, onCreateBlog ,editPost, isEditing }) => {
           onSubmit={handleSubmit}
           className={`${showForm ? "form-visble" : "form-hidden"}`}
         >
-          <h1 className="form-title">New Post</h1>
+          <h1 className="form-title">{isEditing ? "Editing Post" : "New Post"}</h1>
           <div className="upload-section">
             <div
               className={`upload-input ${isDragging ? "dragging" : ""}`}
@@ -173,7 +173,7 @@ const NewPostEnhanced = ({ onShowNews, onCreateBlog ,editPost, isEditing }) => {
             type="text"
             placeholder="Write your title here (Max 60 characters)"
             className={`title-input ${!validtitle ? 'notvalid' : ''}`}
-            maxLength={40}
+            maxLength={60}
             value={title}
             onChange={handleTitle}
           />
@@ -184,7 +184,7 @@ const NewPostEnhanced = ({ onShowNews, onCreateBlog ,editPost, isEditing }) => {
             value={content}
             onChange={handleContent}
           ></textarea>
-          <button className="submit-button">PUBLISH POST</button>
+          <button className="submit-button">{isEditing ? "UPDATE POST" :"PUBLISH POST"}</button>
         </form>
       </div>
     </div>

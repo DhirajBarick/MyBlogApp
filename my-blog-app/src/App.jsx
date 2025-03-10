@@ -25,20 +25,21 @@ const App = () => {
   }, [blogs]);
 
   const handleCreateBlogs = (newBlog, edit) => {
-    setBlogs((b) => {
-      const updatedBlogs = edit
-        ? b.map((blog) => (blog === selectedPost ? newBlog : blog))
-        : [...b, newBlog];
-      localStorage.setItem("blog", JSON.stringify(updatedBlogs));
-      return updatedBlogs;
-    });
+    setBlogs((b) => 
+      edit 
+        ? b.map((blog) => (blog === selectedPost ? newBlog : blog)) 
+        : [...b, newBlog]
+    );
     setEditing(false);
     setSelectedPost(null);
-  };
-  const handleDeleteBlogs = (blog) => {
-    setBlogs((b) => b.filter((b) => b !== blog));
-    setshowBlog(false);
-  };
+};
+const handleDeleteBlogs = (blog) => {
+  setBlogs((b) => {
+    const updatedBlogs = b.filter((b) => b !== blog); 
+    localStorage.setItem("blogs", JSON.stringify(updatedBlogs)); 
+    return updatedBlogs; 
+  });
+};
 
   const handleEditPost = (blog) =>{
     setSelectedPost(blog);
