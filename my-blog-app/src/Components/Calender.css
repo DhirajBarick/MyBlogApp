@@ -91,3 +91,38 @@
   font-weight: bold;
   color: rgba(0, 0, 0, 0.86);
 }
+@media (max-width: 900px) {
+  .calender {
+    height: 100%;
+    min-height: 35rem;
+    padding: 1rem;
+  }
+
+  .calender-details {
+    padding: 0 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .calender-details h2 {
+    font-size: 2rem;
+  }
+
+  .buttons i {
+    width: 3.5rem;
+    height: 3.5rem;
+    font-size: 1.4rem;
+  }
+
+  .grid-days span {
+    font-size: 1.3rem;
+    padding: 0.8rem 0;
+  }
+
+  .grid-date span {
+    font-size: 1.4rem;
+  }
+
+  .grid-date .current-date {
+    font-size: 1.8rem;
+  }
+}

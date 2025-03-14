@@ -443,3 +443,6 @@
     column-gap: 2rem;
   }
 }
+@media(max-width: 500px) {
+  
+}

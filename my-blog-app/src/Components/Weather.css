@@ -127,3 +127,52 @@
     font-size: 1rem;
     color: #ffffff99;
 }
+@media (max-width: 900px) {
+    .weather {
+      height: 100%;
+      min-height: 30rem;
+      padding: 1.5rem;
+    }
+  
+    .weather-header h2 {
+      font-size: 2.5rem;
+    }
+  
+    .weather-search input {
+      height: 4rem;
+      font-size: 2rem;
+      padding: 0 3rem 0 1.5rem;
+    }
+  
+    .weather-search button {
+      right: 2rem;
+      font-size: 1.4rem;
+    }
+  
+    .location {
+      font-size: 2rem;
+      margin-top: 1rem;
+    }
+  
+    .temp-value {
+      font-size: 5rem;
+      margin: 1rem 0;
+    }
+  
+    .weather-condition {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+  
+    .detail i {
+      font-size:2rem;
+    }
+  
+    .detail-info .value {
+      font-size: 2rem;
+    }
+  
+    .detail-info .label {
+      font-size: 2rem;
+    }
+  }

@@ -46,3 +46,8 @@ html {
     max-height: 90vh;
   }
 }
+@media(max-width: 500px) {
+  html{
+    font-size: 40%;
+  }
+}
