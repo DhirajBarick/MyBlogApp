@@ -81,9 +81,11 @@
   background-color: rgba(255, 255, 255, 0.08);
   border-radius: 1rem;
   display: flex;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
+  row-gap: 1rem;
+  cursor: pointer;
 }
 .user img {
   width: 6rem;
@@ -362,4 +364,82 @@
 .footer p span {
   font-family: "Grenze", sans-serif;
   font-size: 2rem;
+}
+
+@media (max-width: 1400px) {
+  .news-area {
+    overflow: hidden;
+  }
+  .news-all{
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(3,1fr);
+    overflow-y:scroll;
+  }
+  .news-all::-webkit-scrollbar{
+    display: none;
+  }
+  .blog-posts{
+    overflow-y: scroll;
+  }
+  .blog-posts::-webkit-scrollbar{
+    display: none;
+  }
+  .blog-post{
+    flex: 0 1 calc(100% - 0.6rem);
+  }
+}
+@media (max-width: 1024px) {
+  .news-all{
+    grid-template-columns: repeat(1,1fr);
+    grid-template-rows: repeat(6,1fr);
+  }
+}
+@media (max-width: 900px){
+  .news{
+    height: 100%;
+    overflow-y: scroll;
+  }
+  .news::-webkit-scrollbar{
+    display: none;
+  }
+  .news-content{
+    flex-direction: column;
+    width: 100%;
+    height: 200rem;
+    row-gap: 2rem;
+  }
+  .nav-bar {
+    width: 100%;
+    min-height: 18rem;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .user{
+    width:calc(30% - 2rem);
+    height: 100%;
+  }
+  .categories{
+    width: 70%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    row-gap: 1rem;
+  }
+  .news-area{
+    width: 100%;
+  }
+  .news-all{
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(2,1fr);
+  }
+  .my-blogs{
+    width: 100%;
+  }
+  .blog-post{
+    flex: 0 1 calc(50% - 0.6rem);
+  }
+  .WCarea{
+    flex-direction: row;
+    column-gap: 2rem;
+  }
 }
