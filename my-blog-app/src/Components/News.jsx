@@ -23,7 +23,7 @@ const News = ({ onShowBlog, blogs, onDelete, onEditBlog }) => {
 
   useEffect(() => {
     const fetchNews = async () => {
-      let url = `https://gnews.io/api/v4/top-hadlines?category=general&lang=en&apikey=0e7415b5d28b765a63c712ced528d65c`;
+      let url = `https://gnews.io/api/v4/top-headlines?category=general&lang=en&apikey=0e7415b5d28b765a63c712ced528d65c`;
 
       if (query) {
         url = `https://gnews.io/api/v4/search?q=${query}&lang=en&apikey=0e7415b5d28b765a63c712ced528d65c`;

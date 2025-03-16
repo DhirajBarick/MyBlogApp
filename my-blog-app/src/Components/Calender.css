@@ -126,3 +126,42 @@
     font-size: 1.8rem;
   }
 }
+@media (max-width: 500px) {
+  .calender {
+    height: 100%;
+    min-height: 55rem;
+    padding: 2rem;
+    overflow-y: scroll;
+  }
+  .calender::-webkit-scrollbar{
+    display: none;
+  }
+
+  .calender-details {
+    padding: 0 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .calender-details h2 {
+    font-size: 3rem;
+  }
+
+  .buttons i {
+    width: 3.5rem;
+    height: 3.5rem;
+    font-size: 1.4rem;
+  }
+
+  .grid-days span {
+    font-size: 1.8rem;
+    padding: .8rem 0;
+  }
+
+  .grid-date span {
+    font-size: 1.8rem;
+  }
+
+  .grid-date .current-date {
+    font-size: 1.9rem;
+  }
+}

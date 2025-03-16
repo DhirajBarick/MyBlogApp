@@ -362,7 +362,7 @@
     display: none;
   }
   .profile-picture{
-    top: 10%;
+    top: 5%;
     right: auto;
     left: 50%;
     transform: translateX(-50%);
@@ -415,4 +415,81 @@
   .submittedtext {
     font-size: 4rem;
   }
+  .create-btn {
+    width: 50%;
+    font-size: 2.2rem;
+  }
+}
+@media (max-width: 500px) {
+  .image-section{
+    width: 100%;
+  }
+  .background-image{
+    display: none;
+  }
+  .profile-picture{
+    top: 5%;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .form-section{
+    position: absolute;
+    inset:0;
+    width: 100%;
+  }
+  .back-button{
+    top: 15rem;
+    right: 5rem;
+  }
+  .form-title {
+    font-size: 6rem;
+    margin: 2rem 0;
+  }
+  .upload-section{
+    width: 95%;
+    margin: 0 1.5rem;;
+  }
+  .upload-input {
+    height: 25rem;
+    margin: 1.5rem 0;
+  }
+
+  .upload-icon {
+    font-size: 4rem;
+  }
+
+  .upload-text {
+    font-size: 2.5rem;
+  }
+
+  .title-input,
+  .text-input {
+    width: 95%;
+    padding: 1.5rem;
+    font-size: 2.5rem;  
+    margin: 1.5rem 1.5rem;
+  }
+  .title-input{
+    height: 15rem;
+  }
+  .text-input{
+    height: 25rem;
+  }
+
+  .submit-button {
+    padding: 1.5rem 3rem;
+    font-size: 1.8rem;
+    margin-top: 3rem;
+    margin-left: 2rem;
+  }
+
+  .submittedtext {
+    font-size: 4rem;
+  }
+  .create-btn {
+    width: 50%;
+    font-size: 2.2rem;
+  }
+
 }
