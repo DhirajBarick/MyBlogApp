@@ -3,3 +3,6 @@
 Making a news and blogs app
 I am doing this by watching a youtube video for learning purpose only
 Any help or more about Reactjs is much appreciated 
+
+#*Link to site:*
+https://news-blogs-app.netlify.app/
